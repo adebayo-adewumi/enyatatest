@@ -18,6 +18,7 @@
                         <th class="px-6 py-3 font-medium">Passenger</th>
                         <th class="px-6 py-3 font-medium">Length</th>
                         <th class="px-6 py-3 font-medium">Character</th>
+                        <th class="px-6 py-3 font-medium"></th>
                     </tr>
 
                     <tr v-for="(starship, index) in starships" :key="index" class="border-b-2 border-gray-100">
@@ -28,6 +29,7 @@
                         <td class="px-6 py-3">{{starship.passengers}}</td>
                         <td class="px-6 py-3">{{starship["length"]}}</td>
                         <td class="px-6 py-3">{{starship.films[0]}}</td>
+                        <td class="px-6 py-3"><NuxtLink :to='`/starship_details?id=${index + 1}`'>View</NuxtLink></td>
                     </tr>
                 </tbody>
             </table>
@@ -55,8 +57,6 @@ export default {
             await this.$axios.$get("https://swapi.dev/api/starships/")
             .then(response =>{
                 this.starships = response.results;
-
-                console.log(this.starships);
             })
         }
     },

@@ -12,32 +12,32 @@
              
         <nav>   
             <div class="mt-12">
-                <NuxtLink to="/dashboard" class="-mx-3 px-3 py-2 flex items-center justify-between text-sm font-medium rounded hover:bg-blue-700 mb-16" :class="[currentRoute === '/dashboard' ? 'bg-blue-700' : '']">
-                    <span class="inline-flex items-center">
+                <NuxtLink to="/dashboard" @click="setMenuActive" class="-mx-3 px-3 py-2 flex items-center justify-between text-sm font-medium rounded hover:bg-blue-700 mb-16" :class="[currentRoute === '/dashboard' ? 'bg-blue-700' : '']">
+                    <span class="inline-flex items-center w-full" @click="setMenuActive">
                         <img src="~assets/img/grid.svg" class="h-6 w-6 transition-all ease-out transition-medium" alt=""/> 
                         
                         <span class="ml-4 text-white">Overviews</span>
                     </span>
                 </NuxtLink>
 
-                <NuxtLink to="/starships" class="-mx-3 px-3 py-2 mb-2 flex items-center justify-between text-sm font-medium rounded-lg hover:bg-blue-700" :class="[currentRoute === '/starships' ? 'bg-blue-700' : '']">
-                    <span class="inline-flex items-center">
+                <NuxtLink to="/starships" @click="setMenuActive" class="-mx-3 px-3 py-2 mb-2 flex items-center justify-between text-sm font-medium rounded hover:bg-blue-700" :class="[currentRoute === '/starships' ? 'bg-blue-700' : '']">
+                    <span class="inline-flex items-center w-full" @click="setMenuActive">
                         <img src="~assets/img/recblue.svg" class="h-6 w-6 transition-all ease-out transition-medium" alt=""/> 
                         
                         <span class="ml-4 text-white">Starships</span>
                     </span>
                 </NuxtLink>
 
-                <NuxtLink to="/people" class="-mx-3 px-3 py-2 mb-2 flex items-center justify-between text-sm font-medium rounded-lg hover:bg-blue-700" :class="[currentRoute === '/people' ? 'bg-blue-700' : '']">
-                    <span class="inline-flex items-center">
+                <NuxtLink to="/people" @click="setMenuActive" class="-mx-3 px-3 py-2 mb-2 flex items-center justify-between text-sm font-medium rounded hover:bg-blue-700" :class="[currentRoute === '/people' ? 'bg-blue-700' : '']">
+                    <span class="inline-flex items-center w-full" @click="setMenuActive">
                         <img src="~assets/img/recpink.svg" class="h-6 w-6 transition-all ease-out transition-medium" alt=""/> 
                         
                         <span class="ml-4 text-white">People</span>
                     </span>
                 </NuxtLink>
 
-                <NuxtLink to="/species" class="-mx-3 px-3 py-2 mb-2 flex items-center justify-between text-sm font-medium rounded-lg hover:bg-blue-700" :class="[currentRoute === '/species' ? 'bg-blue-700' : '']">
-                    <span class="inline-flex items-center">
+                <NuxtLink to="/species"  class="-mx-3 px-3 py-2 mb-2 flex items-center justify-between text-sm font-medium rounded hover:bg-blue-700" :class="[currentRoute === '/species' ? 'bg-blue-700' : '']">
+                    <span class="inline-flex items-center w-full" @click="setMenuActive">
                         <img src="~assets/img/recyellow.svg" class="h-6 w-6 transition-all ease-out transition-medium" alt=""/> 
                         
                         <span class="ml-4 text-white">Species</span>
@@ -52,12 +52,18 @@
 export default {
     data(){
         return {
-            currentRoute: '',
+            currentRoute: '/dashboard',
         }
     },
 
     created(){
-      this.currentRoute = this.$router.currentRoute.path;
+        this.currentRoute = window.location.pathname;
     },
+
+    methods: {
+        setMenuActive(){
+            this.currentRoute = window.location.pathname;
+        }
+    }
 }
 </script>

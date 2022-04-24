@@ -18,6 +18,7 @@
                         <th class="px-6 py-3 font-medium">Hair color</th>
                         <th class="px-6 py-3 font-medium">Height</th>
                         <th class="px-6 py-3 font-medium">Created</th>
+                        <th class="px-6 py-3 font-medium"></th>
                     </tr>
 
                     <tr v-for="(p, index) in people" :key="index" class="border-b-2 border-gray-100">
@@ -28,6 +29,9 @@
                         <td class="px-6 py-3">{{p.hair_color}}</td>
                         <td class="px-6 py-3">{{p.height}}</td>
                         <td class="px-6 py-3">{{$moment(p.created).format("DD/MM/YYYY")}}</td>
+                        <td class="px-6 py-3">
+                            <NuxtLink :to='`/people_details?id=${index + 1}`'>View</NuxtLink>
+                        </td>
                     </tr>
                 </tbody>
             </table>

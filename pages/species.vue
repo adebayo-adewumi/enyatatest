@@ -18,6 +18,7 @@
                         <th class="px-6 py-3 font-medium">Hair color</th>
                         <th class="px-6 py-3 font-medium">Height</th>
                         <th class="px-6 py-3 font-medium">Created</th>
+                        <th class="px-6 py-3 font-medium"></th>
                     </tr>
 
                     <tr v-for="(specie, index) in species" :key="index" class="hover:bg-gray-100 cursor-pointer border-b-2 border-gray-100">
@@ -28,6 +29,9 @@
                         <td class="px-6 py-3">{{specie.hair_colors}}</td>
                         <td class="px-6 py-3">{{specie.average_height}}</td>
                         <td class="px-6 py-3">{{$moment(specie.created).format("DD/MM/YYYY")}}</td>
+                        <td class="px-6 py-3">
+                            <NuxtLink :to='`/specie_details?id=${index + 1}`'>View</NuxtLink>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -55,8 +59,6 @@ export default {
             await this.$axios.$get("https://swapi.dev/api/species/")
             .then(response =>{
                 this.species = response.results;
-
-                console.log(this.species);
             })
         }
     },
