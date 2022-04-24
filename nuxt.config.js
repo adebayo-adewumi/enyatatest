@@ -5,7 +5,8 @@ export default {
         '@/assets/css/style.css',
     ],
     buildModules: [
-        '@nuxt/postcss8'
+        '@nuxt/postcss8',
+        '@nuxtjs/moment',
     ],
     build: {
         postcss: {

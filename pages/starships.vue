@@ -24,10 +24,10 @@
                         <td class="px-6 py-3"><input type="checkbox" /></td>
                         <td class="px-6 py-3">{{starship.name}}</td>
                         <td class="px-6 py-3">{{starship.model}}</td>
-                        <td class="px-6 py-3">{{starship.class}}</td>
+                        <td class="px-6 py-3">{{starship.starship_class}}</td>
                         <td class="px-6 py-3">{{starship.passengers}}</td>
                         <td class="px-6 py-3">{{starship["length"]}}</td>
-                        <td class="px-6 py-3">{{starship.character}}</td>
+                        <td class="px-6 py-3">{{starship.films[0]}}</td>
                     </tr>
                 </tbody>
             </table>

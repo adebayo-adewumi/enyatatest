@@ -27,7 +27,7 @@
                         <td class="px-6 py-3">{{specie.eye_colors}}</td>
                         <td class="px-6 py-3">{{specie.hair_colors}}</td>
                         <td class="px-6 py-3">{{specie.average_height}}</td>
-                        <td class="px-6 py-3">{{specie.created}}</td>
+                        <td class="px-6 py-3">{{$moment(specie.created).format("DD/MM/YYYY")}}</td>
                     </tr>
                 </tbody>
             </table>

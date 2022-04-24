@@ -27,7 +27,7 @@
                         <td class="px-6 py-3">{{p.gender}}</td>
                         <td class="px-6 py-3">{{p.hair_color}}</td>
                         <td class="px-6 py-3">{{p.height}}</td>
-                        <td class="px-6 py-3">{{p.created}}</td>
+                        <td class="px-6 py-3">{{$moment(p.created).format("DD/MM/YYYY")}}</td>
                     </tr>
                 </tbody>
             </table>
