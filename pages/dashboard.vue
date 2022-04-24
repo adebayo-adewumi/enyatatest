@@ -68,6 +68,7 @@
                         <th class="px-6 py-3 font-medium">Producer</th>
                         <th class="px-6 py-3 font-medium">Episode ID</th>
                         <th class="px-6 py-3 font-medium">Character</th>
+                        <th class="px-6 py-3 font-medium"></th>
                     </tr>
 
                     <tr v-for="(f, index) in films" :key="index" class="border-b-2 border-gray-100 cursor-pointer hover:bg-gray-100">
@@ -78,6 +79,7 @@
                         <td class="px-6 py-3">{{f.producer}}</td>
                         <td class="px-6 py-3">{{f.episode_id}}</td>
                         <td class="px-6 py-3"><a :href="f.characters[0]" />{{f.characters[0]}}</td>
+                        <td class="px-6 py-3"><NuxtLink :to='`/dashboard_details?id=${index + 1}`'>View</NuxtLink></td>
                     </tr>
                 </tbody>
             </table>

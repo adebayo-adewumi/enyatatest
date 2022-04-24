@@ -3,11 +3,11 @@
         <header class="px-6">
             <div class="flex justify-between items-center py-3">
                 <div class="flex-1 text-gray-400 flex items-center">
-                    <div class="flex items-center hidden space-x-2">
+                    <NuxtLink to="/dashboard" class="flex items-center space-x-3 cursor-pointer hidden" :class="[(currentRoute != '/dashboard' || currentRoute != '/starships' || currentRoute != '/people' || currentRoute != '/species')  ? '':'hidden']">
                         <span><img src="~assets/img/chevron_right.svg" alt=""/></span>
 
                         <span>Back</span>
-                    </div>
+                    </NuxtLink>
                 </div> 
                 
                 <div class="flex items-center space-x-3">
@@ -34,3 +34,19 @@
         </header>
     </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return {
+            currentRoute: ''
+        }
+    },
+
+    computed() {
+        this.currentRoute = window.location.pathname;
+    }
+
+
+}
+</script>
